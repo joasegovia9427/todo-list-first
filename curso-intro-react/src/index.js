@@ -5,9 +5,5 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App saludo="SaludoAsProp">
-      Learn React with Platzi as children
-    
-    </App>
-
+    <App />
 );
