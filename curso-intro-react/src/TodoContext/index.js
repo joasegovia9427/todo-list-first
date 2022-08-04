@@ -1,11 +1,11 @@
 import React from "react";
-import { useLocalStorage } from "./useLocalStorage";
+import { useLocalStorage } from "../customHooks/useLocalStorage";
 
-const defaultTodos = [
-    { text: "To buy water", completed: true },
-    { text: "To buy bread", completed: false },
-    { text: "Buy milk", completed: false },
-];
+// const defaultTodos = [
+//     { text: "To buy water", completed: true },
+//     { text: "To buy bread", completed: false },
+//     { text: "Buy milk", completed: false },
+// ];
 
 const TodoContext = React.createContext();
 
