@@ -4,7 +4,9 @@ import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
 import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
+import { TodoForm } from "../TodoForm";
 import { CreateTodoButton } from "../CreateTodoButton";
+import { Modal } from "../Modal";
 
 function AppUI() {
     // Desesctructuramos los valores de nuestro contexto
@@ -15,6 +17,8 @@ function AppUI() {
         completeTodo,
         deleteTodo,
         searchValue,
+        openModal,
+        setOpenModal,
     } = React.useContext(TodoContext);
 
     return (
@@ -23,10 +27,10 @@ function AppUI() {
             <TodoSearch />
 
             <TodoList>
-                {error && <p>Desespérate, hubo un error...</p>}
-                {loading && (
-                    <>
-                        <p>Estamos cargando, no desesperes...</p>
+                {error && <p>Mmm, there was an error...</p>}
+                {loading && <p>Loading, hang on...</p>}
+                <div className="loading-image">
+                    {loading && (
                         <img
                             src={
                                 process.env.PUBLIC_URL +
@@ -34,12 +38,14 @@ function AppUI() {
                             }
                             alt="loading"
                         ></img>
-                    </>
-                )}
+                    )}
+                </div>
                 {!loading && !searchedTodos.length && !searchValue && (
-                    <p>¡Crea tu primer TODO!</p>
+                    <p>¡Add your first ToDo!</p>
                 )}
-
+                {!searchedTodos.length && searchValue && (
+                    <p>Nothing found, try other word</p>
+                )}
                 {searchedTodos.map((todo) => (
                     <TodoItem
                         key={todo.text}
@@ -51,7 +57,16 @@ function AppUI() {
                 ))}
             </TodoList>
 
-            <CreateTodoButton />
+            {!!openModal && (
+                <Modal>
+                    <TodoForm />
+                </Modal>
+            )}
+
+            <CreateTodoButton
+                setOpenModal={setOpenModal}
+                openModal={openModal}
+            />
         </React.Fragment>
     );
 }
