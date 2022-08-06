@@ -63,11 +63,12 @@ function AppUI() {
                     <TodoForm />
                 </Modal>
             )}
-
-            <CreateTodoButton
-                setOpenModal={setOpenModal}
-                openModal={openModal}
-            />
+            {!loading && (
+                <CreateTodoButton
+                    setOpenModal={setOpenModal}
+                    openModal={openModal}
+                />
+            )}
         </React.Fragment>
     );
 }

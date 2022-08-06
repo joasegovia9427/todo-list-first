@@ -9,7 +9,11 @@ function TodoItem(props) {
                     "Icon-check--active"}`}
                 onClick={props.onComplete}
             >
-                √
+                <img
+                    className={`check ${props.completed && "check-active"}`}
+                    src={process.env.PUBLIC_URL + "/assests/images/Check.svg"}
+                    alt="checkIcon"
+                ></img>
             </span>
             <p
                 className={`TodoItem-p ${props.completed &&
@@ -18,7 +22,11 @@ function TodoItem(props) {
                 {props.text}
             </p>
             <span className="Icon Icon-delete" onClick={props.onDelete}>
-                X
+                <img
+                    className={`delete ${props.completed && "delete-active"}`}
+                    src={process.env.PUBLIC_URL + "/assests/images/Cancel.svg"}
+                    alt="deleteIcon"
+                ></img>
             </span>
         </li>
     );

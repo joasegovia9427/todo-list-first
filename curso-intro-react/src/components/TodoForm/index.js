@@ -2,6 +2,8 @@ import React from "react";
 import { TodoContext } from "../../TodoContext";
 import "./TodoForm.css";
 
+var showMsg = false;
+
 function TodoForm() {
     const btn = document.getElementById("addButton");
 
@@ -18,6 +20,7 @@ function TodoForm() {
     // Función para cerrar el modal
     const onCancel = () => {
         btn.className = "CreateTodoButton";
+        showMsg = false;
         setOpenModal(false);
     };
 
@@ -27,6 +30,7 @@ function TodoForm() {
         event.preventDefault();
 
         if (newTodoValue) {
+            showMsg = false;
             // Utilizamos nuestra función para añadir nuestro TODO
             addTodo(newTodoValue);
             btn.className = "CreateTodoButton";
@@ -34,6 +38,8 @@ function TodoForm() {
             setOpenModal(false);
             // También estaría bien resetear nuestro formulario
             setNewTodoValue("");
+        } else {
+            showMsg = true;
         }
     };
 
@@ -45,6 +51,12 @@ function TodoForm() {
                 onChange={onChange}
                 placeholder="Take next course ;)"
             />
+            {showMsg && (
+                <p className="msg-text">
+                    To click add, you need to type something
+                </p>
+            )}
+
             <div className="TodoForm-buttonContainer">
                 <button
                     type="button"

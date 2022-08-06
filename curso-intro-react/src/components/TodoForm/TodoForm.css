@@ -80,3 +80,8 @@ textarea:focus {
 .TodoForm-button--cancel:hover {
     background: #cccccc;
 }
+
+.msg-text {
+    color: #202329;
+    font-size: 14px;
+}

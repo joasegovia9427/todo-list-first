@@ -1,6 +1,14 @@
 .TodoCounter {
-  font-size: 24px;
-  text-align: center;
-  margin: 0;
-  padding: 48px;
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: -30px;
+    padding: 48px;
+}
+
+.icon-image {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: -30px;
 }
