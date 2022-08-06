@@ -41,3 +41,9 @@
     display: flex;
     justify-content: center;
 }
+
+.center-wrapper {
+    width: 50%;
+    margin: auto;
+    min-width: 270px;
+}
